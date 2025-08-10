@@ -1,0 +1,43 @@
+/* .about-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  margin-top: 1rem;
+}
+
+.about-content ul {
+  padding-left: 2rem;
+}
+
+.about-content li {
+  margin-bottom: 0.5rem;
+  color: #495057;
+} */
+
+
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 10px;
+}
+
+.card-header {
+  border-radius: 10px 10px 0 0;
+}
+
+.list-group-item {
+  border: none;
+  padding: 12px 0;
+}
+
+.btn-lg {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+}

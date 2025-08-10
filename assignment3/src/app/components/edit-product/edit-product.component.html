@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-header bg-warning text-dark">
+        <h2 class="mb-0">Edit Product</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="name" class="form-label">Product Name *</label>
+            <input type="text" 
+                   class="form-control" 
+                   id="name" 
+                   formControlName="name"
+                   [class.is-invalid]="submitted && f['name'].errors">
+            <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+              <div *ngIf="f['name'].errors['required']">Product name is required</div>
+              <div *ngIf="f['name'].errors['minlength']">Product name must be at least 2 characters</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="price" class="form-label">Price *</label>
+            <input type="number" 
+                   class="form-control" 
+                   id="price" 
+                   formControlName="price"
+                   step="0.01"
+                   [class.is-invalid]="submitted && f['price'].errors">
+            <div *ngIf="submitted && f['price'].errors" class="invalid-feedback">
+              <div *ngIf="f['price'].errors['required']">Price is required</div>
+              <div *ngIf="f['price'].errors['min']">Price must be greater than 0</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="category" class="form-label">Category *</label>
+            <select class="form-control" 
+                    id="category" 
+                    formControlName="category"
+                    [class.is-invalid]="submitted && f['category'].errors">
+              <option value="">Select a category</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Books">Books</option>
+              <option value="Home & Garden">Home & Garden</option>
+              <option value="Sports">Sports</option>
+              <option value="Furniture">Furniture</option>
+            </select>
+            <div *ngIf="submitted && f['category'].errors" class="invalid-feedback">
+              <div *ngIf="f['category'].errors['required']">Category is required</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description *</label>
+            <textarea class="form-control" 
+                      id="description" 
+                      rows="4" 
+                      formControlName="description"
+                      [class.is-invalid]="submitted && f['description'].errors"></textarea>
+            <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+              <div *ngIf="f['description'].errors['required']">Description is required</div>
+              <div *ngIf="f['description'].errors['minlength']">Description must be at least 10 characters</div>
+            </div>
+          </div>
+
+          <div class="mb-3 form-check">
+            <input type="checkbox" 
+                   class="form-check-input" 
+                   id="inStock" 
+                   formControlName="inStock">
+            <label class="form-check-label" for="inStock">
+              In Stock
+            </label>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div>
+              <button type="button" 
+                      class="btn btn-secondary me-2" 
+                      (click)="goBack()">
+                ← Browser Back
+              </button>
+              <button type="button" 
+                      class="btn btn-outline-danger" 
+                      (click)="onCancel()">
+                Cancel
+              </button>
+            </div>
+            <button type="submit" 
+                    class="btn btn-warning" 
+                    [disabled]="loading">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" role="status"></span>
+              {{ loading ? 'Updating...' : 'Update Product' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

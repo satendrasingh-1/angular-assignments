@@ -1,0 +1,17 @@
+.card {
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-group .btn {
+  flex: 1;
+}
+
+.spinner-border {
+  color: #0d6efd;
+}

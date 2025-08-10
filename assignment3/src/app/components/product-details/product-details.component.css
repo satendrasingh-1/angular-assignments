@@ -1,0 +1,18 @@
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 10px;
+}
+
+.table td {
+  padding: 12px 8px;
+  vertical-align: middle;
+}
+
+.badge.fs-6 {
+  font-size: 0.875rem !important;
+}
+
+.text-success {
+  color: #28a745 !important;
+}

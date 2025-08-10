@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2>Products</h2>
+  <a routerLink="/add-product" class="btn btn-success">
+    <i class="fas fa-plus"></i> Add New Product
+  </a>
+</div>
+
+<div *ngIf="loading" class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Loading products...</p>
+</div>
+
+<div *ngIf="error" class="alert alert-danger">
+  {{ error }}
+</div>
+
+<div *ngIf="!loading && !error">
+  <div *ngIf="products.length === 0" class="alert alert-info">
+    No products found. <a routerLink="/add-product">Add the first product</a>!
+  </div>
+
+  <div *ngIf="products.length > 0" class="row">
+    <div *ngFor="let product of products" class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="card-title mb-0">{{ product.name }}</h5>
+          <span class="badge" 
+                [ngClass]="product.inStock ? 'bg-success' : 'bg-danger'">
+            {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+          </span>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text">
+            <strong>Category:</strong> {{ product.category }}<br>
+            <strong>Price:</strong> <span class="text-success">${{ product.price }}</span>
+          </p>
+        </div>
+        <div class="card-footer">
+          <div class="btn-group w-100" role="group">
+            <button type="button" 
+                    class="btn btn-outline-primary" 
+                    (click)="viewProduct(product.id!)">
+              View
+            </button>
+            <button type="button" 
+                    class="btn btn-outline-warning" 
+                    (click)="editProduct(product.id!)">
+              Edit
+            </button>
+            <button type="button" 
+                    class="btn btn-outline-danger" 
+                    (click)="deleteProduct(product.id!, product.name)">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

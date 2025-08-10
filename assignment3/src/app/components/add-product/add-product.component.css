@@ -1,0 +1,18 @@
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 10px;
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}

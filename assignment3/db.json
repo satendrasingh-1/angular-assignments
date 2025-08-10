@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "price": 699.99,
+      "description": "Latest smartphone with advanced features",
+      "category": "Electronics",
+      "inStock": true
+    },
+    {
+      "name": "w123w",
+      "price": 1212,
+      "description": "wewewedwdw",
+      "category": "Electronics",
+      "inStock": true,
+      "id": 4
+    },
+    {
+      "name": "Office Chair",
+      "price": 9,
+      "description": "Ergonomic office chair for comfort",
+      "category": "Furniture",
+      "inStock": false,
+      "id": 6
+    }
+  ]
+}
