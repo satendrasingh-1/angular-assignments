@@ -1,0 +1,46 @@
+<div class="container">
+  <h1 style="color: brown;">Demonstration of obtaining data from server through a service</h1>
+  
+  <div class="product-display">
+    <h2 style="color: orange;">{{ title }}</h2>
+    
+    <div class="loading" *ngIf="loading">
+      <p>Loading products from server...</p>
+    </div>
+    
+    <div class="error" *ngIf="error">
+      <p style="color: red;">{{ error }}</p>
+    </div>
+    
+    <div class="recently-added" *ngIf="recentlyAddedProduct">
+      <p style="color: purple;">Recently Added Product: {{ recentlyAddedProduct }}</p>
+    </div>
+    
+    <table class="product-table" *ngIf="!loading">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Category</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.name }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.quantity }}</td>
+        </tr>
+        <tr *ngIf="products.length === 0 && !loading">
+          <td colspan="3" style="text-align: center; color: #666;">
+            No products available
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-products 
+    [appName]="title" 
+    (productAdded)="onProductAdded($event)">
+  </app-products>
+</div>
