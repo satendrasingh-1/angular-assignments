@@ -1,0 +1,46 @@
+<div class="product-form-container">
+  <h3>Add Product to {{ appName }}</h3>
+  
+  <div class="form-group">
+    <label for="productName">Name:</label>
+    <input 
+      type="text" 
+      id="productName"
+      [(ngModel)]="newProduct.name" 
+      placeholder="Enter product name"
+      class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Status:</label>
+    <div class="radio-group">
+      <label *ngFor="let category of categories" class="radio-label">
+        <input 
+          type="radio" 
+          [value]="category"
+          (change)="onCategoryChange(category)"
+          [checked]="newProduct.category === category"
+          name="category">
+        {{ category }}
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="quantity">Quantity:</label>
+    <input 
+      type="number" 
+      id="quantity"
+      [(ngModel)]="newProduct.quantity" 
+      min="1"
+      class="form-control quantity-input">
+  </div>
+
+  <button 
+    type="button" 
+    (click)="onSubmit()" 
+    class="add-button"
+    [disabled]="!newProduct.name || !newProduct.category">
+    Add Product
+  </button>
+</div>

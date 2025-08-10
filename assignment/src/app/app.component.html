@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 style="color: brown;">Demonstration of passing data between components, styles demo</h1>
+  
+  <div class="product-display">
+    <h2 style="color: orange;">{{ title }}</h2>
+    
+    <div class="recently-added" *ngIf="recentlyAddedProduct">
+      <p style="color: red;">Recently Added Product: {{ recentlyAddedProduct }}</p>
+    </div>
+    
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Category</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.name }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-products 
+    [appName]="title" 
+    (productAdded)="onProductAdded($event)">
+  </app-products>
+</div>
